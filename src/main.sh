@@ -102,7 +102,7 @@ g-co() {
   git checkout "$@"
 }
 
-gl() {
+g-lg() {
   local v="$1"
   local is_num=$(_nx_is_number $v)
   if [ -z "$v" ]; then
