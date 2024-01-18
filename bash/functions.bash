@@ -6,35 +6,6 @@ g-help() {
   echo '+==========+'
 }
 
-# long aliases
-alias clone="git clone"
-alias remote="git remote"
-alias push="git push"
-alias pull="git pull"
-alias branch="git branch"
-
-# shorthands
-alias gco="git checkout"
-alias gd="git diff"
-alias gr="git reset"
-alias gc="git commit"
-alias ga="git add"
-alias glg="git log --all --graph --oneline --decorate"
-alias gir="_g-ir"
-
-g() {
-  local a1="$1"
-  local a2="$2"
-  local fn=g-$a1
-  if [ -z "$a1" ]; then
-    git status
-  elif [[ $(type -t $fn ) == function ]]; then
-    $fn "${@:2}"
-  else
-    git "$@"
-  fi
-}
-
 g-po() {
   if [ -z "$1" ]; then
     echo "Usage: g po <branch>"
@@ -92,7 +63,6 @@ g-rev() {
 g-first() {
   git commit -m "first" "$@"
 }
-# commit start
 
 g-rl() {
   git reset HEAD~1

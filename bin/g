@@ -1,0 +1,25 @@
+#!/bin/bash
+
+main() {
+  source_files
+  local a1="$1"
+  local a2="$2"
+  local fn=g-$a1
+  if [ -z "$a1" ]; then
+    git status
+  elif [[ $(type -t $fn ) == function ]]; then
+    $fn "${@:2}"
+  else
+    git "$@"
+  fi
+}
+
+source_files() {
+  if [ -z "$nex_git_path" ]; then
+    export nex_git_path=$HOME/nex-git
+  fi
+  . $nex_git_path/bash/main.sh
+}
+
+# _end_
+main
