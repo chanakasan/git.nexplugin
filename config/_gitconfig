@@ -1,31 +1,43 @@
 [user]
 	name = Chanaka Abeysinghe
 	email = chanakasan@gmail.com
+[push]
+	default = simple
+[ui]
+	color = auto
+[init]
+	defaultBranch = main
 [core]
 	excludesfile = ~/.gitignore_global
-  # basic
+  # read
 	s = status
-  l = log
+  b = branch
+
+  # select
   aa = add --all
+
+  # modify
   co = checkout
   ff = merge --ff-only
   noff = merge --no-ff
-  b = branch
+
+  # remote
   pom = push origin main
   
   # most used
   # c = commit --verbose
   # amend = commit --amend
+
+  # rebase
   # ir = rebase -i HEAD~10
 
-  fa = fetch --all
-
+  # diff
 	d = diff
 	dc = diff --cached
   ds = diff --stat=160,120
   dh1 = diff HEAD~1
 
-	v = !gitk
+	vish = !gitk
 
   # Divergence (commits we added and commits remote added)
   div = divergence
@@ -48,9 +60,3 @@
   #ra = !git r --all
   #l = "!. ~/.githelpers && pretty_git_log"
   #la = !git l --all
-[push]
-	default = simple
-[ui]
-	color = auto
-[init]
-	defaultBranch = main

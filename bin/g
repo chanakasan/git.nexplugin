@@ -22,4 +22,4 @@ source_files() {
 }
 
 # _end_
-main
+main "$@"

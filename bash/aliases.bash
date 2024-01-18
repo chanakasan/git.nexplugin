@@ -1,4 +1,4 @@
-# long aliases
+# word aliases
 alias clone="git clone"
 alias remote="git remote"
 alias push="git push"
@@ -11,5 +11,6 @@ alias gd="git diff"
 alias gr="git reset"
 alias gc="git commit"
 alias ga="git add"
+alias gl="git log"
 alias glg="git log --all --graph --oneline --decorate"
 alias gir="_g-ir"
