@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source $nex_git_path/lib/functions.bash
+
 main() {
   source_files
   local a1="$1"
