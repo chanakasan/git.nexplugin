@@ -1,0 +1,1 @@
+alias gir="g ir"

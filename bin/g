@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $nex_git_path/lib/functions.bash
+source $nex_git_path/lib/mod_git.sh
 
 main() {
   source_files

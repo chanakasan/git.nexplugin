@@ -16,7 +16,7 @@ g-po() {
 
 g-ir() {
   local v="$1"
-  local is_num=$(_nx_is_number $v)
+  local is_num=$(_is_number $v)
   if [ -z "$v" ]; then
     git rebase -i HEAD~10
   elif [ "$is_num" = "true" ]; then
@@ -123,3 +123,11 @@ g-example() {
   fi
 }
 
+_is_number() {
+  local a1="$1"
+  if [ -n "$a1" ] && [ "$a1" -eq "$a1" ] 2>/dev/null; then
+    echo true
+  else
+    echo false
+  fi
+}
