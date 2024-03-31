@@ -8,7 +8,8 @@ main() {
   local bashrc="$HOME/.bashrc"
   local nex_git_path=$(get_nex_root_path)/nex-git
   start
-  update_bashrc
+  remove_from_bashrc
+  copy_to_bashrc
   create_symlinks
   finish
 }
@@ -23,11 +24,6 @@ start() {
 finish() {
   echo " done"
   echo
-}
-
-update_bashrc() {
-  remove_from_bashrc
-  copy_to_bashrc
 }
 
 create_symlinks() {
