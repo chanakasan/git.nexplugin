@@ -2,12 +2,11 @@
 
 set -e
 
-source $nex_git_path/setup/lib.sh
-
 main() {
   local start_text='__nex_git_start'
   local end_text='__nex_git_end'
   local bashrc="$HOME/.bashrc"
+  local nex_git_path=$(get_nex_root_path)/nex-git
   start
   update_bashrc
   create_symlinks
@@ -48,6 +47,27 @@ copy_to_bashrc() {
   echo 'export PATH=$nex_git_path/bin:$PATH' >> $bashrc
   echo "#$end_text" >> $bashrc
   echo "" >> $bashrc
+}
+
+get_nex_root_path() {
+  local user=$(whoami)
+  if [ "$user" = "codespace" ]; then
+    echo /workspaces/.codespaces/.persistedshare
+  else
+    echo $HOME/dotfiles
+  fi
+}
+
+# eg: validate_var_is_defined "start_text" $start_text
+validate_var_is_defined() {
+  local var_name="$1"
+  local var_value="$2"
+  if [ -n "${var_value}" ]; then
+    :
+  else
+      echo "$var_name is required"
+      exit 1
+  fi
 }
 
 # _end_
