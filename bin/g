@@ -1,9 +1,8 @@
 #!/bin/bash
 
-source $nex_git_path/lib/mod_git.sh
+source $nex_git_path/src/lib/git.sh
 
 main() {
-  source_files
   local a1="$1"
   local a2="$2"
   local fn=g-$a1
@@ -20,7 +19,7 @@ source_files() {
   if [ -z "$nex_git_path" ]; then
     export nex_git_path=$HOME/nex-git
   fi
-  . $nex_git_path/bash/main.sh
+  . $nex_git_path/src/bash/main.sh
 }
 
 # _end_

@@ -39,7 +39,7 @@ copy_to_bashrc() {
   echo "" >> $bashrc
   echo "#$start_text" >> $bashrc
   echo 'export nex_git_path='$nex_git_path >> $bashrc
-  echo 'source $nex_git_path/bash/main.sh' >> $bashrc
+  echo 'source $nex_git_path/src/bash/main.sh' >> $bashrc
   echo 'export PATH=$nex_git_path/bin:$PATH' >> $bashrc
   echo "#$end_text" >> $bashrc
   echo "" >> $bashrc
