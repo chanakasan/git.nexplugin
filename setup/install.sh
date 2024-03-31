@@ -3,10 +3,11 @@
 set -e
 
 main() {
+  local plugin_dir="git.nexplugin"
   local start_text='__nex_git_start'
   local end_text='__nex_git_end'
   local bashrc="$HOME/.bashrc"
-  local nex_git_path=$(get_nex_root_path)/nex-git
+  local nex_git_path=$(get_nex_root_path)/$plugin_dir
   start
   remove_from_bashrc
   copy_to_bashrc
