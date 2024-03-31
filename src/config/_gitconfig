@@ -9,20 +9,24 @@
 	defaultBranch = main
 [core]
 	excludesfile = ~/.gitignore_global
+[alias]
   # read
 	s = status
   b = branch
+  l = log
 
   # select
   aa = add --all
 
   # modify
   co = checkout
+  cp = cherry-pick
   ff = merge --ff-only
   noff = merge --no-ff
 
   # remote
   pom = push origin main
+  pullom = pull origin main
   
   # most used
   # c = commit --verbose

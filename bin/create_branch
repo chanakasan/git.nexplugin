@@ -1,0 +1,32 @@
+main() {
+  local base=$(current_branch)
+  local confirm_value=""
+  if [ -z "$1" ]; then
+    echo " name is required"
+    echo
+    return
+  fi
+  local str="$*"
+  str="${str// /_}"
+  local branch_name=$str
+  echo " => create '$branch_name' off '$base'"
+  confirm_continue
+  git checkout -b $branch_name $base
+}
+
+confirm_continue() {
+  local _answer=""
+  printf " confirm (y/n) "
+  read _answer
+  answer_ref="$_answer"
+  if [ "$_answer" != "y" ]; then
+    echo " Aborted by user"
+    exit
+  fi
+}
+
+current_branch() {
+  git rev-parse --abbrev-ref HEAD
+}
+
+main $@

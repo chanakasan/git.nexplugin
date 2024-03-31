@@ -1,0 +1,32 @@
+main() {
+  local confirm_value=""
+  local src="$1"
+  local dest="$2"
+  if [ -z "$src" ]; then
+    echo " src name is required"
+    echo
+    return
+  fi
+  if [ -z "$dest" ]; then
+    echo " dest name is required"
+    echo
+    return
+  fi
+  local branch_name=$str
+  echo " => rename '$src' to '$dest'"
+  confirm_continue
+  git branch -m $src $dest
+}
+
+confirm_continue() {
+  local _answer=""
+  printf " confirm (y/n) "
+  read _answer
+  answer_ref="$_answer"
+  if [ "$_answer" != "y" ]; then
+    echo " Aborted by user"
+    exit
+  fi
+}
+
+main $@

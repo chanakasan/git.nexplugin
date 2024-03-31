@@ -67,6 +67,7 @@ tags
 
 # local #
 #########
+_load_data.rb
 _dictionary
 cypress/videos
 .agignore
@@ -74,3 +75,10 @@ cypress/videos
 Procfile.local
 Guardfile.local
 .php_cs.cache
+.script/
+.local/
+.local
+.stash/
+.vendor/
+.nex-lib
+.stash_*

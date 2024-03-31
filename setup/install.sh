@@ -2,32 +2,38 @@
 
 set -e
 
+source $nex_git_path/setup/lib.sh
+
 main() {
   local start_text='__nex_git_start'
   local end_text='__nex_git_end'
   local bashrc="$HOME/.bashrc"
-  local nex_git_path=$(get_root_path)/nex-git
+  start
+  update_bashrc
+  create_symlinks
+  finish
+}
+
+start() {
+  # validate_var_is_defined "start_text" $start_text
+  # validate_var_is_defined "end_text" $end_text
+  # validate_var_is_defined "bashrc" $bashrc
   echo " Installing - Nex Git"
+}
+
+finish() {
+  echo " done"
+  echo
+}
+
+update_bashrc() {
   remove_from_bashrc
   copy_to_bashrc
-  create_symlinks
-  echo ""
-  echo " done"
-  echo ""
 }
 
 create_symlinks() {
-  ln -nfs $nex_git_path/config/_gitconfig $HOME/.gitconfig
-  ln -nfs $nex_git_path/config/_gitignore_global $HOME/.gitignore_global
-}
-
-get_root_path() {
-  local user=$(whoami)
-  if [ "$user" = "codespace" ]; then
-    echo /workspaces/.codespaces/.persistedshare
-  else
-    echo $HOME/dotfiles
-  fi
+  ln -nfs $nex_git_path/src/config/_gitconfig $HOME/.gitconfig
+  ln -nfs $nex_git_path/src/config/_gitignore_global $HOME/.gitignore_global
 }
 
 remove_from_bashrc() {

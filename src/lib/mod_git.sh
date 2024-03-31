@@ -52,6 +52,10 @@ g-show() {
 }
 
 # commit start
+g-temp() {
+  git commit -m "TEMP" "$@"
+}
+
 g-wip() {
   git commit -m "WIP" "$@"
 }
@@ -64,8 +68,14 @@ g-first() {
   git commit -m "first" "$@"
 }
 
-g-rl() {
-  git reset HEAD~1
+g-reset() {
+  if [ "$1" == "last" ]; then
+    git reset HEAD~1 ${@:2}
+  elif [ "$1" == "head" ]; then
+    git reset HEAD~$2 ${@:3}
+  else 
+    git reset "$@"
+  fi
 }
 
 g-co() {

@@ -1,0 +1,51 @@
+main() {
+  local verb="$1"
+  if [ -z "$verb" ]; then
+    show
+  elif [ $verb == "show" ]; then
+    show
+  elif [ $verb == "create" ]; then
+    create ${@:2}
+  else
+    print_usage
+  fi
+}
+
+create() {
+  local str="$*"
+  str="${str// /_}"
+  local branch_name=sub_$str
+  create_branch $branch_name
+}
+
+show() {
+  local commit=$(find_first_commit_not_in_main)
+  git branch --contains $commit
+}
+
+ask_confirm() {
+  local -n answer_ref=$1
+  local text="$2"
+  local _answer=""
+  printf "confirm (y/n) "
+  read _answer
+  answer_ref="$_answer"
+}
+
+print_usage() {
+  echo " Usage:"
+  echo "   sub_branch <show|create>"
+  echo
+}
+
+find_first_commit_not_in_main() {
+  first_commit=$(git log main..HEAD --oneline | tail -1)
+  commit_id="${first_commit%% *}"
+  echo $commit_id
+}
+
+current_branch() {
+  git rev-parse --abbrev-ref HEAD
+}
+
+main $@

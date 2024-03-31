@@ -1,0 +1,27 @@
+main() {
+  local confirm_value=""
+  if [ -z "$1" ]; then
+    echo " branch name is required"
+    echo
+    return
+  fi
+  local str="$*"
+  str="${str// /_}"
+  local branch_name=$str
+  echo " => delete '$branch_name'"
+  confirm_continue
+  git branch -d $branch_name
+}
+
+confirm_continue() {
+  local _answer=""
+  printf " confirm (y/n) "
+  read _answer
+  answer_ref="$_answer"
+  if [ "$_answer" != "y" ]; then
+    echo " Aborted by user"
+    exit
+  fi
+}
+
+main $@

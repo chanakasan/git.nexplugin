@@ -1,0 +1,32 @@
+main() {
+  local src=$1
+  local new_parent=$2
+  local confirm_value=""
+  if [ -z "$1" ]; then
+    echo " src branch is required"
+    echo
+    return
+  fi
+  if [ -z "$2" ]; then
+    echo " new_parent branch is required"
+    echo
+    return
+  fi
+  echo " => rebase '$src' to '$new_parent'"
+  confirm_continue
+  git checkout $src
+  git rebase $new_parent
+}
+
+confirm_continue() {
+  local _answer=""
+  printf " confirm (y/n) "
+  read _answer
+  answer_ref="$_answer"
+  if [ "$_answer" != "y" ]; then
+    echo " Aborted by user"
+    exit
+  fi
+}
+
+main $@
