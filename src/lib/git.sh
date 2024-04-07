@@ -56,8 +56,12 @@ g-temp() {
   git commit -m "TEMP" "$@"
 }
 
+g-check() {
+  git commit -m "checkpoint" "$@"
+}
+
 g-wip() {
-  git commit -m "WIP" "$@"
+  git commit -m "wip" "$@"
 }
 
 g-rev() {

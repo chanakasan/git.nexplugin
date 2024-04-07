@@ -60,25 +60,27 @@ vendor/*
 *.iml
 *.xcodeproj/
 
-# other #
+# any #
 #########
 .rbenv-gemsets
 tags
+cypress/videos
+.php_cs.cache
+
+# special function #
+###########
+_load_data.rb
+_dictionary
+.script/
+.lib/
+.local/
+.stash/
+.stash*
 
 # local #
 #########
-_load_data.rb
-_dictionary
-cypress/videos
 .agignore
 .projections.json
 Procfile.local
 Guardfile.local
-.php_cs.cache
-.script/
-.local/
-.local
-.stash/
-.vendor/
-.nex-lib
-.stash_*
+
