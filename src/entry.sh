@@ -1,2 +1,3 @@
-export nex_git_path=$nex_plugin_base/git.plugin
-export PATH=nex_git_path/bin:$PATH
+source $(nex _config)
+export nex_git_path=$(nex _plugin git)
+export PATH=$nex_git_path/bin:$PATH
