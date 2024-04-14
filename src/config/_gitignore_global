@@ -74,6 +74,7 @@ _dictionary
 .script/
 .lib/
 .local/
+.local
 .stash/
 .stash*
 
@@ -84,3 +85,4 @@ _dictionary
 Procfile.local
 Guardfile.local
 
+.byebug_history
