@@ -56,8 +56,16 @@ g-temp() {
   git commit -m "TEMP" "$@"
 }
 
+g-minor() {
+  git commit -m "minor fix" "$@"
+}
+
 g-check() {
   git commit -m "checkpoint" "$@"
+}
+
+g-trivial() {
+  git commit -m "trivial" "$@"
 }
 
 g-wip() {
