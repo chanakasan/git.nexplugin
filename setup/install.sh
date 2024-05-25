@@ -1,14 +1,8 @@
-source $(nex _config)
-bash $nex_support/plugin/install/run_default.sh "git"
-
-steps() {
-  create_symlinks
-}
-
 create_symlinks() {
-  local tmp_base=$nex_plugin_base/git.plugin/src/config
-  ln -nfs $tmp_base/_gitconfig $HOME/.gitconfig
-  ln -nfs $tmp_base/_gitignore_global $HOME/.gitignore_global
+  local root=$(nex _plugin git)
+  local base=$root/src/config
+  ln -nfs $base/_gitconfig $HOME/.gitconfig
+  ln -nfs $base/_gitignore_global $HOME/.gitignore_global
 }
 
-steps
+create_symlinks
