@@ -69,20 +69,15 @@ cypress/videos
 
 # special function #
 ###########
-_load_data.rb
-_dictionary
-.script/
-.lib/
+.ignore/
 .local/
 .local
-.stash/
-.stash*
 
 # local #
 #########
 .agignore
 .projections.json
+.byebug_history
 Procfile.local
 Guardfile.local
 
-.byebug_history
